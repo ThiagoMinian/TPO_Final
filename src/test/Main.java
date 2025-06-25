@@ -1,6 +1,7 @@
 package test;
 
 import modelo.Grafo;
+import modelo.GrafoUtils;
 import interfaces.INodo;
 import java.util.List;
 
@@ -17,20 +18,13 @@ public class Main {
         mapaCiudades.agregarArista("Buenos Aires", "Rosario", 300);
         mapaCiudades.agregarArista("Rosario", "Córdoba", 400);
         mapaCiudades.agregarArista("Córdoba", "Mendoza", 600);
-        mapaCiudades.agregarArista("Buenos Aires", "Santa Fe", 480);
-        mapaCiudades.agregarArista("Santa Fe", "Córdoba", 400);
+        mapaCiudades.agregarArista("Santa Fe", "Córdoba", 200);
+        mapaCiudades.agregarArista("Buenos Aires", "Santa Fe", 500);
 
         mapaCiudades.mostrarListaAdyacenciaPonderada();
 
         System.out.println("\nCamino más corto de Buenos Aires a Mendoza:");
         List<INodo<String>> camino = mapaCiudades.encontrarCaminoMasCortoDijkstra("Buenos Aires", "Mendoza");
-
-        if (camino.isEmpty()) {
-            System.out.println("No hay camino disponible.");
-        } else {
-            for (INodo<String> nodo : camino) {
-                System.out.println("- " + nodo.getValor());
-            }
-        }
+        GrafoUtils.mostrarCamino(camino);
     }
 }

@@ -15,22 +15,18 @@ public class Nodo<T> implements INodo<T> {
         this.vecinosConPesos = new HashMap<>();
     }
 
-    @Override
     public int getId() {
         return id;
     }
 
-    @Override
     public T getValor() {
         return valor;
     }
 
-    @Override
     public Map<INodo<T>, Integer> getVecinosConPesos() {
         return vecinosConPesos;
     }
 
-    @Override
     public void agregarVecino(INodo<T> vecino, int peso) {
         vecinosConPesos.put(vecino, peso);
     }
