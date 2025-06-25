@@ -28,10 +28,11 @@ public class Grafo<T extends Comparable<T>> implements IGrafo<T> {
         INodo<T> nodoDestino = nodosPorValor.get(destino);
         if (nodoOrigen != null && nodoDestino != null) {
             nodoOrigen.agregarVecino(nodoDestino, peso);
+            nodoDestino.agregarVecino(nodoOrigen, peso);
         } else {
             System.err.println("Error: Nodos de origen o destino no encontrados al intentar agregar arista.");
         }
-        nodoDestino.agregarVecino(nodoOrigen peso);
+        
     }
 
     public List<INodo<T>> encontrarCaminoMasCortoDijkstra(T inicio, T destino) {
